@@ -83,6 +83,8 @@ class fd_naive_ucb:
         self.tr_root_sigma_r = np.sum(np.sqrt(w_sigma_r))
 
     def select_arm(self):
+        if not np.all(self.visitation):
+            return np.random.choice(np.where(self.visitation == 0)[0])
         return np.random.choice(np.where(self.hat_fid == np.min(self.hat_fid))[0])
 
     def update_stats(self, g, batch_feat):
@@ -176,6 +178,8 @@ class is_naive_ucb:
         self.tilde_marginal_dist = np.zeros((G, num_cls,))
 
     def select_arm(self):
+        if not np.all(self.visitation):
+            return np.random.choice(np.where(self.visitation == 0)[0])
         return np.random.choice(np.where(self.hat_log_is == np.max(self.hat_log_is))[0])
 
     def update_stats(self, g, batch_preds):
