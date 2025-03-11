@@ -114,14 +114,14 @@ class fd_naive_ucb:
         L = np.log(1. / self.delta)
         L_prime = np.log(1. / self.delta)
 
-        Delta_mu_g = np.sqrt(1. / n_g * (np.sqrt(1. * tr_cov2_g * L) + 1. * norm2_cov_g * L))
-        Delta_cov_g = 1. * (self.kappa ** 2) * norm2_cov_g * np.sqrt((1. * eff_rank_cov_g + L_prime) / n_g) + \
+        Delta_mu_g = np.sqrt(1. / n_g * (np.sqrt(tr_cov2_g * L) + norm2_cov_g * L))
+        Delta_cov_g = (self.kappa ** 2) * norm2_cov_g * np.sqrt((eff_rank_cov_g + L_prime) / n_g) + \
                       (Delta_mu_g ** 2)
 
-        term1 = 1. * Delta_mu_g * (Delta_mu_g + np.linalg.norm(mu_g - self.mu_r))
-        term2 = self.tr_root_sigma_r * np.sqrt(1. * Delta_cov_g)
+        term1 = Delta_mu_g * (Delta_mu_g + np.linalg.norm(mu_g - self.mu_r))
+        term2 = self.tr_root_sigma_r * np.sqrt(Delta_cov_g)
         term3 = self.num_dim * np.sqrt(1. / n_g * L)
-        term4 = 1. * norm2_cov_g / n_g * L
+        term4 = norm2_cov_g / n_g * L
 
         return term1 + term2 + term3 + term4
 
