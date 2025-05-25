@@ -1,5 +1,5 @@
 # dgm-online-eval
-Official repository of the paper "A Multi-Armed Bandit Approach to Online Evaluation and Selection of Generative Models"
+Official repository of the paper "A Multi-Armed Bandit Approach to Online Evaluation and Selection of Generative Models" (AISTATS 2025)
 
 [Xiaoyan Hu](https://yannxiaoyanhu.github.io), [Ho-fung Leung](http://www.cse.cuhk.edu.hk/~lhf/), [Farzan Farnia](https://www.cse.cuhk.edu.hk/~farnia/Home.html) [[Paper](https://arxiv.org/abs/2406.07451)]
 
